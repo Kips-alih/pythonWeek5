@@ -50,3 +50,48 @@ while not my_book.is_finished():
 # Final message when the book is finished
 if my_book.is_finished():
     print("You have finished reading the book!")
+
+
+# Base class - Vehicle
+class Vehicle:
+    def move(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+# Subclass - Car
+class Car(Vehicle):
+    def move(self):
+        print("Driving 🚗")
+
+# Subclass - Plane
+class Plane(Vehicle):
+    def move(self):
+        print("Flying ✈️")
+
+# Subclass - Boat
+class Boat(Vehicle):
+    def move(self):
+        print("Sailing ⛵")
+
+# Function to prompt the user for input and create the appropriate vehicle
+def create_vehicle():
+    print("Choose a vehicle to create:")
+    print("1. Car")
+    print("2. Plane")
+    print("3. Boat")
+
+    choice = int(input("Enter the number of your choice: "))
+
+    if choice == 1:
+        return Car()
+    elif choice == 2:
+        return Plane()
+    elif choice == 3:
+        return Boat()
+    else:
+        print("Invalid choice. Defaulting to Car.")
+        return Car()  # Default to Car if invalid choice
+
+# Main program
+vehicle = create_vehicle()  # Create the vehicle based on user input
+vehicle.move()  # Call the move method, which behaves differently based on the vehicle
+
